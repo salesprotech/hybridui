@@ -1,13 +1,37 @@
 <ion-content scroll="false">
-  <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      {{ 'WELCOME_INTRO' | translate }}
+    <div class="splash-bg"></div>
+    <div class="splash-info">
+        <div class="splash-logo"></div>
+        <div class="splash-intro">
+            {{ 'WELCOME_INTRO' | translate }}
+        </div>
     </div>
-  </div>
-  <div padding>
-    <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
-  </div>
+
+    <ion-content>
+        <!-- Segment in content -->
+        <ion-card>
+
+            <ion-card-content>
+                <ion-segment [(ngModel)]="log" color="primary">
+                    <ion-segment-button value="login">
+
+                        <ion-icon name="desktop"></ion-icon> &nbsp; &nbsp; Login
+                    </ion-segment-button>
+                    <ion-segment-button value="signup">
+                        <ion-icon name="create"></ion-icon> &nbsp; &nbsp; Sign-up
+                    </ion-segment-button>
+                </ion-segment>
+            </ion-card-content>
+            <div [ngSwitch]="log">
+                <ion-card-content *ngSwitchCase="'login'">
+                    <page-login></page-login>
+                </ion-card-content>
+                <ion-card-content *ngSwitchCase="'signup'">
+
+                    <page-signup></page-signup>
+                </ion-card-content>
+            </div>
+
+        </ion-card>
+    </ion-content>
 </ion-content>

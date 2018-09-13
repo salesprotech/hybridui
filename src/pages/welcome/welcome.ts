@@ -1,3 +1,5 @@
+import { SignupPage } from './../signup/signup';
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
@@ -13,6 +15,8 @@ import { IonicPage, NavController } from 'ionic-angular';
   templateUrl: 'welcome.html'
 })
 export class WelcomePage {
+
+  log: string = "login";
 
   constructor(public navCtrl: NavController) { }
 
